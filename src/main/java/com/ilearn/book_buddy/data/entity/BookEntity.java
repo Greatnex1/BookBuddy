@@ -19,12 +19,12 @@ import java.util.Date;
 public class BookEntity extends AppendableReferenceEntity {
     @Column(nullable = false, length = 30)
     private String name;
-    @Column(nullable = false, unique = true)
+   @Column(nullable = false, unique = true)
     @Min(value = 1, message = "Please enter an isbn")
     private int isbn;
     @Column(nullable = false)
     private LocalDate publishDate;
-    @Column(nullable = false)
+   @Column(nullable = false)
     private BigDecimal price;
     @Enumerated(EnumType.STRING)
     private BookType bookType;
