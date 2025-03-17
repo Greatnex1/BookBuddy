@@ -11,9 +11,11 @@ import org.hibernate.annotations.UpdateTimestamp;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Date;
+
 @Entity
 @Getter
 @Setter
+@Table(name="books")
 public class BookEntity extends AppendableReferenceEntity {
     @Column(nullable = false, length = 30)
     private String name;
