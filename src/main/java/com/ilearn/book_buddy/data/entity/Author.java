@@ -35,7 +35,7 @@ public class Author extends AppendableReferenceEntity {
     private List<Book> books = new ArrayList<>();
     @Column(nullable = false, updatable = false)
     @CreationTimestamp
-    private Date createdAt;
+    private Date dateCreated;
     @UpdateTimestamp
-    private Date updatedAt;
+    private Date dateUpdated;
 }
