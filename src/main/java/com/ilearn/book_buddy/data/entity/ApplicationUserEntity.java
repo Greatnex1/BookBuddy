@@ -1,9 +1,20 @@
 package com.ilearn.book_buddy.data.entity;
 
 import com.ilearn.book_buddy.data.enums.Gender;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import lombok.*;
 
-public class ApplicationUserEntity {
-    private String id;
+import java.io.Serializable;
+
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@Entity
+@Table(name = "user_entities")
+public class ApplicationUserEntity extends AppendableReferenceEntity{
 
     private String firstName;
 
