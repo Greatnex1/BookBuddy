@@ -8,14 +8,12 @@ import org.springframework.util.StringUtils;
 
 import static com.ilearn.book_buddy.handlers.messages.ErrorMessages.APPENDABLE_SEPARATOR;
 
-//@Entity
-//@Table(name = "book_reference")
+
 @Getter
 @Setter
 @MappedSuperclass
 public class AppendableReferenceEntity {
     @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
     private String id;
 

@@ -16,7 +16,7 @@ import java.util.Date;
 @Getter
 @Setter
 @Table(name="books")
-public class BookEntity extends AppendableReferenceEntity {
+public class Book extends AppendableReferenceEntity {
     @Column(nullable = false, length = 30)
     private String name;
    @Column(nullable = false, unique = true)
