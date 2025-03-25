@@ -83,5 +83,4 @@ class BookServiceTest {
         assertEquals(HttpStatus.NOT_FOUND, exception.getStatus());
         verify(bookRepository, times(1)).findById(bookId);
     }
-
 }
