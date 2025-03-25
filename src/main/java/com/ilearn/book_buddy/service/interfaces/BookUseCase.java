@@ -13,10 +13,11 @@ import java.util.List;
 
 public interface BookUseCase {
     BookDto createBook(BookRequest bookRequest) throws IOException;
-    void updateBook(long id, BookRequest bookRequest) throws IOException;
+    void updateBook(String id, BookRequest bookRequest) throws IOException;
     PagedResponse findAll(int pageNumber, int noOfItems);
-    SpringDataJaxb.PageDto searchCriteria(String query, int page, int size);
-    void deleteBook(long id);
-    List<BookDto> filterByAuthor(String reference);
+    BookDto findById(String id);
+//    PageDto searchCriteria(String query, int page, int size);
+    void deleteBook(String id);
+
 
 }
