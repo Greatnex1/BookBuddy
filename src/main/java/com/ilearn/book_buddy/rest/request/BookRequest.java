@@ -5,6 +5,7 @@ import com.ilearn.book_buddy.data.enums.BookType;
 import jakarta.validation.constraints.*;
 import lombok.*;
 import java.math.BigDecimal;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -13,8 +14,6 @@ import java.math.BigDecimal;
 public class BookRequest {
     @NotEmpty
     private String title;
-    @NotBlank
-    private String publishedDate;
     @NotEmpty
     private String description;
     @Positive
