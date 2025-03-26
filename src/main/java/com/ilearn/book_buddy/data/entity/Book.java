@@ -26,8 +26,7 @@ public class Book extends AppendableReferenceEntity {
     @Column(nullable = false, length = 30)
     private String title;
    @Column(nullable = false, unique = true)
-    @Min(value = 1, message = "Please enter an isbn")
-    private int isbn;
+    private String  isbn;
     @Column(nullable = false)
     private int publicationYear;
    @Column(nullable = false)

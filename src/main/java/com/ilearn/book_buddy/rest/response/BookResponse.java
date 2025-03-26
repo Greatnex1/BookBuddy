@@ -13,7 +13,7 @@ import java.time.LocalDate;
 public class BookResponse {
     private String title;
     private String description;
-    private int isbn;
+    private String isbn;
     private int publicationYear;
     private long price;
     private LocalDate dateUploaded;
