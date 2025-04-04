@@ -1,5 +1,6 @@
 package com.ilearn.book_buddy.validator.annotation;
 
+import com.ilearn.book_buddy.validator.MultipartValidator;
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
 
