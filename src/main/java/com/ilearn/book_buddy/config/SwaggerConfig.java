@@ -21,11 +21,11 @@ import org.springframework.context.annotation.Configuration;
 @OpenAPIDefinition(
         info = @io.swagger.v3.oas.annotations.info.Info(
                 contact = @Contact(
-                        name = "Nouah",
+                        name = "Nouah Akoni",
                         email = "noahgreatakoni@gmail.com"
                 ),
-                title = "E-book Store",
-                description = "An E-book store",
+                title = "E-Book Store",
+                description = "A book management system application",
                 version = "0.0.1-SNAPSHOT"
         ),
         servers = {
