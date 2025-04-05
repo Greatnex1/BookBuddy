@@ -28,6 +28,15 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private final JwtUseCase jwtService;
     private final UserDetailsService userDetailsService; /** implementation is provided in config.ApplicationSecurityConfig */
 
+    private boolean isPublicEndpoint(String uri) {
+        return uri.startsWith("/api/v1/auth") ||
+                uri.startsWith("/v3/api-docs") ||
+                uri.startsWith("/swagger-ui") ||
+                uri.startsWith("/swagger-resources") ||
+                uri.startsWith("/configuration") ||
+                uri.startsWith("/webjars") ||
+                uri.equals("/swagger-ui.html");
+    }
 
     @Override
     protected void doFilterInternal(
@@ -42,7 +51,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         final String authHeader = request.getHeader("Authorization");
 
 
-        if((jwt == null && (authHeader ==  null || !authHeader.startsWith("Bearer "))) || request.getRequestURI().contains("/auth")){
+        if (isPublicEndpoint(request.getRequestURI()) ||
+                (jwt == null && (authHeader == null || !authHeader.startsWith("Bearer ")))) {
             filterChain.doFilter(request, response);
             return;
         }
