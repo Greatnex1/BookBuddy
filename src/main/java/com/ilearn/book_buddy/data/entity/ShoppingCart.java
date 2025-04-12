@@ -19,7 +19,7 @@ import java.util.List;
 @NoArgsConstructor
 public class ShoppingCart extends AppendableReferenceEntity {
     @Column(nullable = false, unique = true)
-    private String userId;
+    private long userId;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<CartItem> items;
