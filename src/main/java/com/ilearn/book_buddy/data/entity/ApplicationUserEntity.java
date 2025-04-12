@@ -15,14 +15,14 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
-
+@EqualsAndHashCode(callSuper = true)
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 @Entity
-@Table(name = "user_entities")
+@Table(name = "users")
 public class ApplicationUserEntity extends AppendableReferenceEntity implements UserDetails {
 
     private String firstName;
