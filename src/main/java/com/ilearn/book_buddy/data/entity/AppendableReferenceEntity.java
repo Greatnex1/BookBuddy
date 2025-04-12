@@ -5,17 +5,16 @@ import lombok.Getter;
 import lombok.Setter;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.util.StringUtils;
-
-import static com.ilearn.book_buddy.handlers.messages.ErrorMessages.APPENDABLE_SEPARATOR;
-
+import static com.ilearn.book_buddy.constants.ErrorMessages.APPENDABLE_SEPARATOR;
 
 @Getter
 @Setter
 @MappedSuperclass
 public class AppendableReferenceEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
-    private String id;
+    private long id;
 
     @Column(length = 20, nullable = false, updatable = false, unique = true)
     private String reference;
