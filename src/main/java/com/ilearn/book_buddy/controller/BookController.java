@@ -7,6 +7,9 @@ import com.ilearn.book_buddy.rest.ResponseDto;
 import com.ilearn.book_buddy.rest.request.BookRequest;
 import com.ilearn.book_buddy.rest.response.PagedResponse;
 import com.ilearn.book_buddy.service.implementation.BookService;
+import com.ilearn.book_buddy.validator.annotation.ValidateMultipart;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,12 +19,14 @@ import org.springframework.web.bind.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
-import static com.ilearn.book_buddy.constants.UrlConstants.URL_CONSTANT;
+import static com.ilearn.book_buddy.constants.UrlConstants.URL;
+
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(URL_CONSTANT )
+@RequestMapping(URL + "/book" )
 @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+@Tag(name= "Book Endpoints")
 public class BookController {
 
     private final BookService bookService;
@@ -52,12 +57,13 @@ public class BookController {
     @PutMapping(value = "/update", produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
     public void updateBook(@RequestParam String bookId, @ModelAttribute BookRequest bookRequest) throws IOException {
-//        long id = AppendableReferenceUtils.getIdFrom(bookId);
+//      long id = AppendableReferenceUtils.getIdFrom(bookId);
         bookService.updateBook(bookId, bookRequest);
     }
 
 
     @GetMapping(value = "/all", produces = "application/json")
+    @Operation(summary = "endpoint to get all books")
     public ResponseEntity<ResponseDto> getAllBooks(
             @RequestParam(value = "pageNo", required = false, defaultValue = "0") String pageNo,
             @RequestParam(value = "noOfItems", required = false, defaultValue = "1") String numberOfItems){
