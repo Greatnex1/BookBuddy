@@ -14,8 +14,8 @@ import java.util.Date;
 @Setter
 @Table(name="purchase_histories")
 public class PurchaseHistory extends AppendableReferenceEntity {
-    private String cartId;
-    private String userId;
+    private long cartId;
+    private long userId;
     private BigDecimal amountPaid;
     @Column(nullable = false, updatable = false)
     @CreationTimestamp
