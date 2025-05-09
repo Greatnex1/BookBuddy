@@ -26,6 +26,15 @@ public class PageDto {
         return PageDto.builder().data(new ArrayList<>()).totalPages(0).totalItems(0)
                 .status(ResponseStatus.SUCCESS).build();
     }
+    public static PageDto build(Page<?> page, Function<? super Object, ?> mapper) {
+        List<?> data = page.stream().map(mapper).collect(Collectors.toList());
+        return PageDto.builder().data(data).totalPages(page.getTotalPages())
+                .currentPage(page.getNumber())
+                .hasMore(page.hasNext())
+                .status(ResponseStatus.SUCCESS)
+                .totalItems(page.getTotalElements()).build();
+    }
 
-   
+
+
 }
