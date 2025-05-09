@@ -35,6 +35,13 @@ public class PageDto {
                 .totalItems(page.getTotalElements()).build();
     }
 
-
+    public static PageDto build(Page<?> page, List<?> data) {
+        return PageDto.builder().totalPages(page.getTotalPages())
+                .currentPage(page.getNumber())
+                .totalItems(page.getTotalElements())
+                .hasMore(page.hasNext())
+                .status(ResponseStatus.SUCCESS)
+                .data(data).build();
+    }
 
 }
